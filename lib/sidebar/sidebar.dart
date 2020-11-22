@@ -12,7 +12,8 @@ class SideBar extends StatefulWidget {
   _SideBarState createState() => _SideBarState();
 }
 
-class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<SideBar> {
+class _SideBarState extends State<SideBar>
+    with SingleTickerProviderStateMixin<SideBar> {
   AnimationController _animationController;
   StreamController<bool> isSidebarOpenedStreamController;
   Stream<bool> isSidebarOpenedStream;
@@ -22,7 +23,8 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: _animationDuration);
+    _animationController =
+        AnimationController(vsync: this, duration: _animationDuration);
     isSidebarOpenedStreamController = PublishSubject<bool>();
     isSidebarOpenedStream = isSidebarOpenedStreamController.stream;
     isSidebarOpenedSink = isSidebarOpenedStreamController.sink;
@@ -68,7 +70,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
               Expanded(
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  color: const Color(0xFF262AAA),
+                  color: Colors.black,
                   child: Column(
                     children: <Widget>[
                       SizedBox(
@@ -76,11 +78,14 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       ),
                       ListTile(
                         title: Text(
-                          "Prateek",
-                          style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.w800),
+                          "Tony Stark",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w800),
                         ),
                         subtitle: Text(
-                          "www.techieblossom.com",
+                          "www.starkexpo.com",
                           style: TextStyle(
                             color: Color(0xFF1BB5FD),
                             fontSize: 18,
@@ -97,7 +102,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                       Divider(
                         height: 64,
                         thickness: 0.5,
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.cyan.withOpacity(0.3),
                         indent: 32,
                         endIndent: 32,
                       ),
@@ -106,7 +111,8 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         title: "Home",
                         onTap: () {
                           onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.HomePageClickedEvent);
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.HomePageClickedEvent);
                         },
                       ),
                       MenuItem(
@@ -114,25 +120,27 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                         title: "My Account",
                         onTap: () {
                           onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAccountClickedEvent);
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.MyAccountClickedEvent);
                         },
                       ),
                       MenuItem(
-                        icon: Icons.shopping_basket,
-                        title: "My Orders",
+                        icon: Icons.local_hospital,
+                        title: "My Appointments",
                         onTap: () {
                           onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyOrdersClickedEvent);
+                          BlocProvider.of<NavigationBloc>(context)
+                              .add(NavigationEvents.MyAppointmentsClickedEvent);
                         },
                       ),
                       MenuItem(
-                        icon: Icons.card_giftcard,
-                        title: "Wishlist",
+                        icon: Icons.question_answer,
+                        title: "My Queries",
                       ),
                       Divider(
                         height: 64,
                         thickness: 0.5,
-                        color: Colors.white.withOpacity(0.3),
+                        color: Colors.cyan.withOpacity(0.3),
                         indent: 32,
                         endIndent: 32,
                       ),
@@ -159,12 +167,12 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                     child: Container(
                       width: 35,
                       height: 110,
-                      color: Color(0xFF262AAA),
+                      color: Colors.black,
                       alignment: Alignment.centerLeft,
                       child: AnimatedIcon(
                         progress: _animationController.view,
                         icon: AnimatedIcons.menu_close,
-                        color: Color(0xFF1BB5FD),
+                        color: Colors.red,
                         size: 25,
                       ),
                     ),
