@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
+import 'package:sidebar_animation/pages/myappointments.dart';
 import '../pages/myaccountspage.dart';
-import '../pages/myorderspage.dart';
 
 import '../pages/homepage.dart';
 
 enum NavigationEvents {
   HomePageClickedEvent,
   MyAccountClickedEvent,
-  MyOrdersClickedEvent,
+  MyAppointmentsClickedEvent,
 }
 
 abstract class NavigationStates {}
@@ -25,8 +25,8 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
       case NavigationEvents.MyAccountClickedEvent:
         yield MyAccountsPage();
         break;
-      case NavigationEvents.MyOrdersClickedEvent:
-        yield MyOrdersPage();
+      case NavigationEvents.MyAppointmentsClickedEvent:
+        yield MyAppointmentsPage();
         break;
     }
   }
